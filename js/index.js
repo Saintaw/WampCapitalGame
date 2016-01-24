@@ -34,6 +34,13 @@ var SelectedCountry = "";
 
 
 
+$( "#continents-but" ).click(function() {
+
+	alert('soon');
+
+});
+
+
 $( "#reset-but" ).click(function() {
 
 	$('.list-capitals').removeClass( "sel" );
