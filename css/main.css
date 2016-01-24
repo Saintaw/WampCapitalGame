@@ -20,3 +20,13 @@
 #gamepannel li:hover {
 	cursor: pointer;
 }
+
+#gamepannel img {
+
+-moz-border-radius: 3px;
+border-radius: 3px;
+border: solid 1px #ccc;
+padding-left: 4px;
+padding-right: 4px;
+
+}

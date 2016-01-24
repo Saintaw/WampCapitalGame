@@ -94,8 +94,8 @@ function AddStory(Country) {
 		//delete the lis in both lists
 		var tmp_country = 'ctry_' +Country;
 		var tmp_capital = 'cap_' +Country;
-		$('#' +tmp_country).delay(300).hide();
-		$('#' +tmp_capital).delay(300).hide();
+		$('#' +tmp_country).delay(300).hide('slow');
+		$('#' +tmp_capital).delay(300).hide('slow');
 
 	}
 	else {
@@ -105,16 +105,6 @@ function AddStory(Country) {
 }
 
 
-
-
-$( ".list-group-item" ).click(function() {
-  //console.log($(this).attr('id'));
-  /* classes:
-	.bg-success
-	.bg-danger
-  */
-
-});
 
 
 
@@ -167,7 +157,8 @@ var $countries = $.parseJSON(localStorage.countries);
 $( "#countries ul" ).remove();
   var items = [];	
   $.each( $countries, function( key, val ) {
-    items.push( "<li class='list-group-item list-countries' id='ctry_" + key+ "' data-country='" + key + "'>" + val + "</li>" );
+  	var l_key = key.toLowerCase();
+    items.push( "<li class='list-group-item list-countries' id='ctry_" + key+ "' data-country='" + key + "'><img src='./media/flags/" + l_key + ".png' /> &nbsp;" + val + "</li>" );
   });
 
   //shuffle(items);
