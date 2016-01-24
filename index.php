@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FileCounter</title>
+    <title>WampCapitalGame</title>
 
     <!-- Bootstrap -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">FileCounter</a>
+          <a class="navbar-brand" href="#">WampCapitalGame</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -65,12 +65,12 @@
 
       </div>
 
-<div class="row">
+<div class="row" id="gamepannel">
   <div class="col-md-4" id="countries"><h1>Countries</h1>
   </div>
   <div class="col-md-4" id="capitals"><h1>Capitals</h1></div>
   <div class="col-md-4" id="history"><h1>History</h1>
-          <input type="button" id="reset-but" value="Reset" class="btn btn-primary"></button>
+          <input type="button" id="reset-but" value="Reset" class="btn btn-primary" />
     <ul class="list-group" id="list-history">
       <li class="list-group-item" style="display:none;">Your click history</li>
     </ul>

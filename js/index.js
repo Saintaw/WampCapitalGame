@@ -41,6 +41,9 @@ $( "#reset-but" ).click(function() {
 	$( ".list-countries").removeClass( "red" );
 	$("#history ul").empty();
 
+	LoadCountries();
+	LoadCapitals();	
+
 });
 
 
@@ -135,11 +138,17 @@ $( ".list-group-item" ).click(function() {
 
 function LoadCapitals() {
 var $capitals = $.parseJSON(localStorage.capitals);
+$( "#capitals ul" ).remove();
+
 
   var items = [];	
   $.each( $capitals, function( key, val ) {
+    if (val !== "")
     items.push( "<li class='list-group-item list-capitals' id='cap_" + key+ "' data-country='" + key + "'>" + val + "</li>" );
   });
+
+
+	shuffle(items);
 
   $( "<ul />", {
     "class": "list-group",
@@ -153,10 +162,16 @@ var $capitals = $.parseJSON(localStorage.capitals);
 function LoadCountries() {
 var $countries = $.parseJSON(localStorage.countries);
 
+
+
+$( "#countries ul" ).remove();
   var items = [];	
   $.each( $countries, function( key, val ) {
     items.push( "<li class='list-group-item list-countries' id='ctry_" + key+ "' data-country='" + key + "'>" + val + "</li>" );
   });
+
+  //shuffle(items);
+  items.sort();
 
   $( "<ul />", {
     "class": "list-group",
@@ -165,7 +180,10 @@ var $countries = $.parseJSON(localStorage.countries);
 
 }
 
-
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
 /*
 RenderList($capitals,$countries);
 
