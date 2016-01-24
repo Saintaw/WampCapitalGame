@@ -1,1 +1,4 @@
 Put it on wamp because I couldn't get localstorage to work on localhost (ha!)
+Rename index.php to index.htm to run it localy (firefox only so far)
+
+
