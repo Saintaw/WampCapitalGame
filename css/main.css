@@ -1,0 +1,18 @@
+/* //main.css*/
+
+
+.green {
+
+	background-color: #18CC2D;
+	  transition: all 0.5s ease;
+}
+.red{
+
+	background-color: #FF6137;
+	  transition: all 0.5s ease;
+}
+.sel{
+	border: solid 1px #999;
+	background-color: #ccc;
+	  transition: all 0.5s ease;	
+}
