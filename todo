@@ -3,6 +3,7 @@ List Filters
 Scoring
 Fix reset
 Fix Hide Continents
+fix/change that recursive loop to get the continents...there must be a better way
 
 UI:
 Lists are way too long, I need to cut this shorter somehow
