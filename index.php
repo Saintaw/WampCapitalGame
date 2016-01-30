@@ -20,89 +20,33 @@
   </head>
   <body>
   <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">WampCapitalGame</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <!--
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          -->
-          </ul>
-          
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-
+<?php
+include_once './nav/topnav.php';
+?>
+  <div class="container">
       <div class="row">
-          /*blah*/
+          /*blah is not shown with fixed nav*/
           <br /><br /><hr />
-
-
       </div>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4" id="instructions">
-    <h4>Instructions:</h4> <p>Click on a capital and try to find the country attached.</p>
-    <input type="button" id="reset-but" value="Reset" class="btn btn-primary" />
-    <input type="button" id="continents-but" value="Show/Hide continents" class="btn btn-primary" />
-  </div>  
-
-</div>
-<div class="row" id="gamepannel">
-  <div class="col-md-4" id="countries"><h1>Countries</h1>
-  </div>
-  <div class="col-md-4" id="capitals"><h1>Capitals</h1></div>
-  <div class="col-md-4" id="history"><h1>History</h1>
-          
-    <ul class="list-group" id="list-history">
-      <li class="list-group-item" style="display:none;">Your click history</li>
-    </ul>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4 col-md-offset-4" id="commands">
-
-  </div>  
-
-</div>
-
-
-      <div class="row">
-        <div class="col-md-12" id="mydebug">
-           
-
-        </div>
-      </div>
-
-      <div class="row">
-
-      </div>
-
+<?php
+/*Main index switch*/
+if (isset($_GET['appaction']))
+    {
+    $appaction = $_GET['appaction']; 
+    }
+else
+    {
+    $appaction = "continent"; 
+    }
+echo "Current Action: " .$appaction;    
+    
+switch ($appaction) {
+    case "continent":
+        include_once './inc/continent_game.php';
+    case "map":
+        include_once './inc/map_game.php';
+}
+?>
     </div> <!-- /container -->
 
 
@@ -112,6 +56,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+<?php
+switch ($appaction) {
+    case "continent":
+        echo '<script src="js/continent_game.js"></script>';
+    case "map":
+        echo '<script src="js/three.min.js"></script>';
+        echo '<script src="js/Detector.js"></script>';
+        echo '<script src="js/Tween.js"></script>';
+        echo '<script src="js/globe.js"></script>';
+        echo '<script src="js/map_game.js"></script>';
+        
+        
+}
+?>
+    
+    
   </body>
 </html>
